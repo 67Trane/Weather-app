@@ -14,10 +14,11 @@ export class HeroComponent implements OnInit {
   constructor(private weatherService: WeatherService) {}
 
   ngOnInit() {
-    this.weatherService.getWeatherByCoordinates(44.34, 10.99).subscribe({
+    this.weatherService.getWeatherByCity('Weißenburg', 'de').subscribe({
       next: (data) => {
         this.weatherData = data;
         console.log('Wetterdaten:', data);
+        console.log(data.main.temp)
       },
       error: (err) => {
         console.error('Fehler beim Abrufen der Wetterdaten:', err);
