@@ -16,5 +16,7 @@ export class WeatherService {
     const url = `${this.apiUrl}?q=${location}&units=metric&lang=de&appid=${this.apiKey}`;
     return this.http.get(url);
   }
+
+  
 }
 
