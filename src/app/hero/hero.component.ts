@@ -13,10 +13,14 @@ export class HeroComponent implements OnInit {
   currentTime: string = "";
 
 
-  constructor(private weatherService: WeatherService) {}
+  constructor(private weatherService: WeatherService) { }
 
   ngOnInit() {
-    this.weatherService.getWeatherByCity('Weißenburg', 'de').subscribe({
+    this.getData()
+  }
+
+  getData(city: string = "Weißenburg", country: string = "de") {
+    this.weatherService.getWeatherByCity(`${city}`, `${country}`).subscribe({
       next: (data) => {
         this.weatherData = data;
         console.log('Wetterdaten:', data);
